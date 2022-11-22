@@ -1,65 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    android:gravity="center_vertical"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="match_parent"
-        android:layout_height="51dp"
-        android:layout_marginLeft="20sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginRight="20sp"
-        android:layout_weight="1"
-        android:autoText="false"
-        android:fontFamily="sans-serif-medium"
-        android:text="Puncty"
-        android:textAlignment="center"
-        android:textColor="@color/titleTextColor"
-        android:textSize="100sp" />
-
-    <TextView
-        android:id="@+id/mottoText"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
-        android:layout_weight="1"
-        android:scaleY="1"
-        android:text="Nie wieder zu spät sein"
-        android:textAlignment="center"
-        android:textColor="@color/titleTextColor"
-        android:textSize="28sp"
-        android:translationY="-2sp" />
-
     <Button
-        android:id="@+id/createMeetingsBtn"
-        android:layout_width="match_parent"
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
-        android:layout_weight="1"
-        android:backgroundTint="#BF0000"
-        android:onClick="changeToCreateMeetings"
-        android:text="Treffen erstellen"
-        android:textSize="35sp" />
-
-    <Button
-        android:id="@+id/showMeetingsBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
-        android:layout_marginBottom="20sp"
-        android:layout_weight="1"
-        android:backgroundTint="#C18100"
-        android:onClick="changeToShowMeetings"
-        android:text="Treffen anzeigen"
-        android:textSize="35sp" />
-</LinearLayout>
+        android:onClick="toMainScreen"
+        android:text="Button" />
+</androidx.constraintlayout.widget.ConstraintLayout>

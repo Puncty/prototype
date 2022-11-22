@@ -9,22 +9,16 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button createMeetingsBtn;
-    Button showMeetingsBtn;
+    Button toMainScreenBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        createMeetingsBtn = findViewById(R.id.createMeetingsBtn);
-        showMeetingsBtn = findViewById(R.id.showMeetingsBtn);
+        toMainScreenBtn = findViewById(R.id.button2);
     }
 
-    public void changeToCreateMeetings(View view){
-        Intent intentToCreateMeetings = new Intent(this, CreateMeetings.class);
-        startActivity(intentToCreateMeetings);
-    }
-    public void changeToShowMeetings(View view){
-        Intent intentToShowMeetings = new Intent(this, ShowMetings.class);
-        startActivity(intentToShowMeetings);
+    public void toMainScreen(View view){
+        Intent toMainScreenIntent = new Intent(this, MainMenu.class);
+        startActivity(toMainScreenIntent);
     }
 }
