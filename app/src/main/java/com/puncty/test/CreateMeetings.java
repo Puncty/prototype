@@ -26,10 +26,10 @@ public class CreateMeetings extends AppCompatActivity {
         editTextDate = findViewById(R.id.editTextDate);
         editTextTime = findViewById(R.id.editTextTime);
 
-        Requester r = new Requester("https://api.puncty.com");
+        Requester r = new Requester("http://localhost:3000");
         Session s = null;
         try {
-            s = Session.login(r, "test@test.com", "test");
+            s = Session.login(r, "test@test.com", "1234");
         } catch (BrokenResponse e) {
             System.out.println(e);
         }
