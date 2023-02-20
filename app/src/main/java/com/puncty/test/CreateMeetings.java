@@ -8,6 +8,7 @@ import com.puncty.lib.Meetup;
 import com.puncty.lib.MeetupCollection;
 import com.puncty.lib.Session;
 import com.puncty.lib.exceptions.BrokenResponse;
+import com.puncty.lib.exceptions.UserAlreadyExists;
 import com.puncty.lib.networking.Requester;
 
 import java.util.Date;
@@ -19,19 +20,20 @@ public class CreateMeetings extends AppCompatActivity {
 
     public EditText editTextDate;
     public EditText editTextTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //create everything
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_meetings);
         editTextDate = findViewById(R.id.editTextDate);
         editTextTime = findViewById(R.id.editTextTime);
 
-        Requester r = new Requester("http://localhost:3000");
-        Session s = null;
+        Session s;
         try {
-            s = Session.login(r, "test@test.com", "1234");
+            s = ensuredSession();
         } catch (BrokenResponse e) {
-            System.out.println(e);
+            return;
         }
 
         mc = new MeetupCollection(s);
@@ -39,5 +41,17 @@ public class CreateMeetings extends AppCompatActivity {
 
     private void createMeetingButton(){
         Date meeting = new Date();
+    }
+
+    public Session ensuredSession() throws BrokenResponse {
+        Requester r = new Requester("https://puncty.johannespour.de");
+        Session s;
+        try {
+            s = Session.register(r, "SomeUser", "some@email.com", "SomePassword");
+        } catch (UserAlreadyExists e) {
+            s = Session.login(r, "some@email.com", "SomePassword");
+        }
+
+        return s;
     }
 }
