@@ -1,6 +1,7 @@
 package com.puncty.test;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.meetingPlace.setText("Ort: " + meeting.getPlace());
         holder.meetingDate.setText("Datum: " + ((meeting.getDate()[0]<10)?("0"+meeting.getDate()[0]):(meeting.getDate()[0])) + "." + ((meeting.getDate()[1]<10)?("0"+meeting.getDate()[1]):(meeting.getDate()[1])));
         holder.meetingTime.setText("Uhrzeit: " + meeting.getTime()[0] + ":" + ((meeting.getTime()[1]<10)?("0"+meeting.getTime()[1]):(meeting.getTime()[1])));
+        int colorSpec = (201/(meetings.length-1))*position;
+        holder.cardView.setCardBackgroundColor(Color.parseColor(setColor((227-colorSpec), (colorSpec),19)));
+
+    }
+    public String setColor(int r, int g, int b){
+        String color = "#";
+        color += Integer.toHexString(r);
+        if(g>=16){
+            color += Integer.toHexString(g);
+        }else{
+            color+="0"+ Integer.toHexString(g);
+
+        }
+
+        color += Integer.toHexString(b);
+        return color;
 
     }
 
